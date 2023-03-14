@@ -1,4 +1,3 @@
-
 #[allow(non_camel_case_types)]
 #[derive(Debug, PartialEq, Clone)]
 pub enum TokenType {
@@ -7,7 +6,7 @@ pub enum TokenType {
 
     // Identifiers + literals
     IDENTIFIER, // add, foobar, x, y, ...
-    INT,   // 1343456
+    INT,        // 1343456
 
     // Operators
     ASSIGN,
