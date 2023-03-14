@@ -12,9 +12,9 @@ jobs:
       - name: Install curl
         run: |
           sudo apt update
-          sudo apt install curl -y
+          sudo apt install curl
       - name: Intall rustup
-        run: curl https://sh.rustup.rs -sSf | sh -y
+        run: echo -e "\n" | curl https://sh.rustup.rs -sSfy | sh
       - name: Configure PATH
         run: source "$HOME/.cargo/env"
       
