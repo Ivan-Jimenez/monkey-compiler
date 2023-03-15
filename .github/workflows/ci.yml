@@ -1,0 +1,43 @@
+name: ci
+
+on: pull_request
+
+jobs:
+  install:
+    name: Install Rust
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Install curl
+        run: |
+          sudo apt update
+          sudo apt install curl
+      - name: Intall rustup
+        run: echo -e "\n" | curl https://sh.rustup.rs -sSfy | sh
+      - name: Configure PATH
+        run: source "$HOME/.cargo/env"
+      
+  fmt:
+    name: cargo fmt
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: cargo fmt
+        run: cargo fmt --all -- --check
+   
+  clippy:
+    name: cargo clippy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: cargo clippy
+        run: cargo clippy --all -- -D warnings
+  
+  test:
+    name: cargo test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: cargo test
+      run: cargo test
