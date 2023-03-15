@@ -1,44 +1,43 @@
-#[allow(non_camel_case_types)]
 #[derive(Debug, PartialEq, Clone)]
 pub enum TokenType {
-    ILLEGAL,
-    EOF,
+    Illegal,
+    EoF,
 
     // Identifiers + literals
-    IDENTIFIER, // add, foobar, x, y, ...
-    INT,        // 1343456
+    Identifier, // add, foobar, x, y, ...
+    Int,        // 1343456
 
     // Operators
-    ASSIGN,
-    PLUS,
-    MINUS,
-    BANG,
-    ASTERISK,
-    SLASH,
+    Assign,
+    Plus,
+    Minus,
+    Bang,
+    Asterisk,
+    Slash,
 
-    LT,
-    GT,
+    LowerThan,
+    GraterThan,
 
-    EQ,
-    NOT_EQ,
+    Equal,
+    NotEqual,
 
     // Delimiters
-    COMMA,
-    SEMICOLON,
+    Comma,
+    SemiColon,
 
-    LPAREN,
-    RPAREN,
-    LBRACE,
-    RBRACE,
+    LeftParenthesis,
+    RightParenthesis,
+    LeftBrace,
+    RightBrace,
 
     // Keywords
-    FUNCTION,
-    LET,
-    TRUE,
-    FALSE,
-    IF,
-    ELSE,
-    RETURN,
+    Function,
+    Let,
+    True,
+    False,
+    If,
+    Else,
+    Return,
 }
 
 #[derive(Debug, Clone)]
@@ -57,14 +56,14 @@ impl Token {
 
     pub fn lookup_identifier(identifier: &str) -> TokenType {
         match identifier {
-            "fn" => TokenType::FUNCTION,
-            "let" => TokenType::LET,
-            "true" => TokenType::TRUE,
-            "false" => TokenType::FALSE,
-            "if" => TokenType::IF,
-            "else" => TokenType::ELSE,
-            "return" => TokenType::RETURN,
-            _ => TokenType::IDENTIFIER,
+            "fn" => TokenType::Function,
+            "let" => TokenType::Let,
+            "true" => TokenType::True,
+            "false" => TokenType::False,
+            "if" => TokenType::If,
+            "else" => TokenType::Else,
+            "return" => TokenType::Return,
+            _ => TokenType::Identifier,
         }
     }
 }

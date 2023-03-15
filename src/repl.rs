@@ -20,7 +20,7 @@ pub fn start(input: &mut dyn BufRead, output: &mut dyn Write) {
         loop {
             let tok = lexer.next_token();
 
-            if tok.token_type == TokenType::EOF {
+            if tok.token_type == TokenType::EoF {
                 break;
             }
 
